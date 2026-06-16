@@ -34,3 +34,23 @@ This repository contains an automated data extraction pipeline designed to mine 
 
 ### 💡 Why this matters (For Recruiters)
 This script demonstrates strong proficiency in **Data Engineering** and **Web Scraping**. It highlights the ability to handle messy, real-world data collection challenges such as dynamic JavaScript rendering, explicit waits, bot mitigation, and structured data storage—all essential first steps in any robust Machine Learning or Data Science pipeline.
+
+## 🤖 LLM-Powered Aspect-Based Sentiment Analysis (ABSA)
+
+### Overview
+This repository module leverages Large Language Models (LLMs)—specifically Google's Gemini API—to extract deep, categorical insights from unstructured board game reviews. Instead of a simple "positive/negative" classification, this script performs **Aspect-Based Sentiment Analysis (ABSA)**, identifying specific dimensions of a game (e.g., Rules, Components, Replayability) and analyzing the user's sentiment toward each individual aspect.
+
+### 🚀 Key Features
+* **Advanced Prompt Engineering:** Utilizes strict system instructions to define an expert computational linguist persona, constraining the LLM to a predefined taxonomy of 6 game aspects and 3 sentiment polarities.
+* **Deterministic JSON Generation:** Configures the LLM with a low temperature (`0.1`) and enforces `application/json` output schemas. This guarantees that the generative model returns consistently parsable, highly structured data without hallucinations or markdown formatting.
+* **Robust Data Handling:** Uses `pandas` to load, clean, and iterate through scraped CSV data, including exception handling and dummy-dataset fallbacks for missing files.
+* **API Rate-Limit Management:** Implements automated pausing (`time.sleep`) and error-catching (`try/except`) within the processing loop to ensure reliable, uninterrupted API calls over large datasets.
+* **Hugging Face Ready:** Exports the final annotated dataset as a properly indented JSON file, structured specifically for downstream ML tasks or uploading to the Hugging Face Hub.
+
+### 🛠️ Tech Stack
+* **Generative AI:** Google Gemini API (`gemini-2.5-pro`)
+* **Data Engineering:** Python, Pandas, JSON
+* **NLP Techniques:** Aspect-Based Sentiment Analysis (ABSA), Zero-Shot Classification, Structured Output Generation
+
+### 💡 Why this matters (For Recruiters)
+This script demonstrates the ability to move beyond traditional NLP models by effectively leveraging state-of-the-art Generative AI to solve complex information extraction problems. It proves a strong understanding of **Prompt Engineering**, API integration, and how to coerce LLMs into producing reliable, machine-readable data (JSON) that can be directly injected into analytical dashboards or used for fine-tuning other models.
