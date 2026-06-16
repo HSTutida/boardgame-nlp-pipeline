@@ -13,3 +13,24 @@ Architecting robust, stealth-enabled web scrapers to gather multimodal data.
 Engineering data pipelines to clean, merge, and structure complex datasets using Pandas.
 
 Applying advanced NLP techniques to transform massive amounts of qualitative text into actionable, structured insights.
+
+## 📊 BoardGameGeek (BGG) Data Miner
+
+### Overview
+This repository contains an automated data extraction pipeline designed to mine unstructured text data (user reviews and forum discussions) from BoardGameGeek (BGG). Built with Python and Selenium WebDriver, the script navigates complex web hierarchies to build a dataset for Natural Language Processing (NLP) and Sentiment Analysis.
+
+### 🚀 Key Features
+* **Stealth Automation:** Implements headless browsing and WebDriver cloaking techniques (e.g., removing `AutomationControlled` flags, modifying user agents) to bypass basic bot-detection systems and ensure uninterrupted data collection.
+* **Dynamic Pagination & Scraping:** Automatically navigates BGG's browse pages to dynamically gather target Game IDs and URLs without relying on static lists.
+* **Targeted Forum Mining:** Filters and accesses the "Hot/Top" forum threads for each game, programmatically waiting for DOM elements to load before extracting titles and full-length review texts.
+* **Fault-Tolerant Data Engineering:** Processes data iteratively and writes to independent CSV files per game (`reviews_[game_slug].csv`). This micro-batching approach prevents data loss in the event of a network timeout or crash during long extraction runs.
+* **Polite Scraping Architecture:** Integrates polite delays (`time.sleep`) to respect the target server's load limits.
+
+### 🛠️ Tech Stack
+* **Language:** Python 3.x
+* **Browser Automation:** Selenium WebDriver
+* **Driver Management:** `webdriver_manager` (for automated Chrome binary synchronization)
+* **Data I/O:** Python native `csv` module
+
+### 💡 Why this matters (For Recruiters)
+This script demonstrates strong proficiency in **Data Engineering** and **Web Scraping**. It highlights the ability to handle messy, real-world data collection challenges such as dynamic JavaScript rendering, explicit waits, bot mitigation, and structured data storage—all essential first steps in any robust Machine Learning or Data Science pipeline.
