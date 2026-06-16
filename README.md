@@ -52,5 +52,4 @@ This repository module leverages Large Language Models (LLMs)—specifically Goo
 * **Data Engineering:** Python, Pandas, JSON
 * **NLP Techniques:** Aspect-Based Sentiment Analysis (ABSA), Zero-Shot Classification, Structured Output Generation
 
-### 💡 Why this matters (For Recruiters)
-This script demonstrates the ability to move beyond traditional NLP models by effectively leveraging state-of-the-art Generative AI to solve complex information extraction problems. It proves a strong understanding of **Prompt Engineering**, API integration, and how to coerce LLMs into producing reliable, machine-readable data (JSON) that can be directly injected into analytical dashboards or used for fine-tuning other models.
+
