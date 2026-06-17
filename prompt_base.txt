@@ -1,0 +1,103 @@
+System / role:
+“You are an expert in aspect-based sentiment analysis for board game reviews. Your task is to extract aspect-level sentiments about board games from user reviews on BoardGameGeek. Use only the allowed aspects and sentiment labels.”
+Prompt do usuário (template):
+Task:
+Given a board game review, identify which of the following aspects are mentioned
+and classify the sentiment towards each mentioned aspect.
+
+Allowed aspects (English):
+- rules
+- components
+- replayability
+- interaction
+- complexity
+- luck
+
+Allowed sentiment labels:
+- positive
+- negative
+- neutral
+
+Instructions:
+1. Read the full review.
+2. For each allowed aspect, decide if the review expresses an opinion
+   about that aspect (explicitly or implicitly).
+3. If there is an opinion, assign one of the allowed sentiment labels.
+4. Only include aspects that are actually mentioned or clearly implied.
+5. If no aspect is mentioned, return an empty list for "aspects".
+6. Output the result as a single valid JSON object, with no explanations,
+   using exactly this schema:
+
+{
+  "review_id": "<string>",
+  "game_id": "<string>",
+  "aspects": [
+    {
+      "aspect": "rules | components | replayability | interaction | complexity | luck",
+      "sentiment": "positive | negative | neutral",
+      "evidence_span": "<short quote from the review that justifies the sentiment>"
+    }
+  ]
+}
+
+Few-shot examples:
+
+Review:
+"I love how the rules are explained and the components feel premium,
+but the game drags on for too long."
+
+review_id: EX1
+game_id: GAME_EX1
+
+Expected JSON:
+{
+  "review_id": "EX1",
+  "game_id": "GAME_EX1",
+  "aspects": [
+    {
+      "aspect": "rules",
+      "sentiment": "positive",
+      "evidence_span": "love how the rules are explained"
+    },
+    {
+      "aspect": "components",
+      "sentiment": "positive",
+      "evidence_span": "components feel premium"
+    },
+    {
+      "aspect": "replayability",
+      "sentiment": "negative",
+      "evidence_span": "the game drags on for too long"
+    }
+  ]
+}
+
+Review:
+"This is a great game if you enjoy reading 30 pages of rules before
+you can actually play."
+
+review_id: EX2
+game_id: GAME_EX2
+
+Expected JSON:
+{
+  "review_id": "EX2",
+  "game_id": "GAME_EX2",
+  "aspects": [
+    {
+      "aspect": "rules",
+      "sentiment": "negative",
+      "evidence_span": "great game if you enjoy reading 30 pages of rules"
+    }
+  ]
+}
+
+Now analyze the following review.
+
+review_id: {review_id_here}
+game_id: {game_id_here}
+
+Review text:
+{review_text_here}
+
+Return only the JSON.
